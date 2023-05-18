@@ -25,12 +25,17 @@ async fn main() {
                     command::issues::handler(matches).await;
                 }
                 _ => {
-                    match args.print_help() {
-                        Ok(ret) => ret,
-                        Err(err) => {
-                            println!("{:#?}", err);
+                    for cmd in args.get_subcommands_mut() {
+                        if cmd.get_name() == "issues" {
+                            match cmd.print_help() {
+                                Ok(ret) => ret,
+                                Err(err) => {
+                                    println!("{:#?}", err);
+                                }
+                            };
+                            break;
                         }
-                    };
+                    }
                 }
             }
         }
