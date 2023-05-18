@@ -1,8 +1,11 @@
 .PHONY: all 
-all: build-linux build-windows build-macos build-macos-intel
+all: check build-linux build-windows build-macos build-macos-intel
 
 REPO ?= 2030047311
 TAG ?= latest
+
+check:
+	cargo check
 
 build-local-debug:
 	cargo build

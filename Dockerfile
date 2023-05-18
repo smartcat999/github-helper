@@ -2,7 +2,7 @@ FROM rust:1.67 as builder
 
 WORKDIR /usr/src/
 COPY . .
-ADD config ~/.cargo/
+
 RUN make build-local
 
 
