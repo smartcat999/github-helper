@@ -1,5 +1,5 @@
-    if [ "$1" = "gctl" ] || [ "$1" = "github-helper" ]; then
+    if [ "$1" = "gctl" ]; then
         exec "$@"
     else
-        sh gctl "$@"
+        sh -c gctl "$@"
     fi
