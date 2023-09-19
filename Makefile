@@ -26,6 +26,10 @@ build-macos:
 build-macos-intel:
 	cargo build --release --target=x86_64-apple-darwin
 
+build-image:
+	docker build -f Dockerfile -t ${REPO}/github-helper:${TAG} .
+	docker push ${REPO}/github-helper:${TAG}
+
 build-multi-platform-image:
 	docker buildx build -f Dockerfile -t ${REPO}/github-helper:${TAG} --platform linux/amd64,linux/arm64 --push .
 
