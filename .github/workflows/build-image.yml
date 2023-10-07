@@ -102,7 +102,7 @@ jobs:
           output: 'report.json'
           ignore-unfixed: true
           vuln-type: 'os'
-          image-ref: ${{ env.IMAGE_NAME }}:${{ env.TAG }}
+          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
       - name: Check Vuln Count
         id: vuln_count
